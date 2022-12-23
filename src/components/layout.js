@@ -4,15 +4,13 @@
  *
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
 import "./layout.css"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
+  useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
         siteMetadata {
@@ -24,7 +22,6 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
         style={{
           margin: `0 auto`,
@@ -39,9 +36,8 @@ const Layout = ({ children }) => {
             fontSize: `var(--font-sm)`,
           }}
         >
-          © {new Date().getFullYear()} &middot; Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+          © {new Date().getFullYear()} &middot;
+          {` `} SAQC
         </footer>
       </div>
     </>
